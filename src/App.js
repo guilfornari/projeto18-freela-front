@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-
+import TeamCalendar from "./pages/TeamCalendar";
 
 function App() {
 
@@ -8,8 +8,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/sign-up" element={<SignUpPage />} />
-          <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/team/:teamId" element={<TeamCalendar />} />
+        {/* <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/meteors" element={<MeteorsPage />} />
           <Route path="/meteors/:idMeteorite" element={<MeteoritePage />} /> */}
       </Routes>

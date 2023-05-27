@@ -4,7 +4,7 @@ export default function Header() {
 
     return (
         <HeaderStyled>
-            <h1>Meteor Store</h1>
+            <h1>NBA TRIP the crossover of watching dunks and buying stuff!</h1>
         </HeaderStyled>
     )
 }
@@ -12,8 +12,8 @@ export default function Header() {
 const HeaderStyled = styled.div`
 width: 100vw;
 max-width:100%;
-height: 140px; 
-background-color: #1D1F2D;
+height: 140px;
+background-color: #FFFFFF;
 position: fixed;
 top: 0;
 left: 0;
@@ -22,10 +22,11 @@ align-items: center;
 z-index: 1;
     
     h1 {
-        width: 100px;
+        padding-left: 40px;
         color: red;
-        font-size: 30px;
-        font-family: 'Poppins';
-        font-weight: 500;
+        font-family: 'Lato', sans-serif;
+        font-size: 40px;
+        font-weight: 700;
+
     }
 `;
