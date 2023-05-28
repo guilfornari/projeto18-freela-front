@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import Header from "../components/Header";
 import FlightCard from "../components/FlightCard";
+import MinSliderFilter from "../components/MinSliderFilter";
+import MaxSliderFilter from "../components/MaxSliderFilter";
 
 export default function CityFlights() {
-
     return (
         <>
             <Header />
             <StyledHome>
                 <StyledSideBar>
-                    Filtro
+                    <h3>Preço Mínimo</h3>
+                    <MinSliderFilter />
+                    <h3>Preço Máximo</h3>
+                    <MaxSliderFilter />
                 </StyledSideBar>
                 <StyledFlightsContainer>
                     <h1>Flights to your game!</h1>
@@ -37,16 +41,20 @@ const StyledHome = styled.div`
 `;
 
 const StyledSideBar = styled.div`
-    width: 20vw;
+    width: 25vw;
     height: 100vh;
     background-color: lightgreen;
     display: flex;
     flex-direction: column;
-    padding: 10px 20px;
+    align-items: center;
+    padding: 20px 5px;
+    h3{
+        margin: 40px 0 10px 0;
+    }
 `;
 
 const StyledFlightsContainer = styled.div`
-    width: 80vw;
+    width: 75vw;
     height: 100vh;
     background-color: lightcyan;
     display: flex;
