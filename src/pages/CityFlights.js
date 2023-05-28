@@ -1,17 +1,13 @@
 import styled from "styled-components";
 import Header from "../components/Header";
-import GameCard from "../components/GameCard";
 
-
-export default function TeamCalendar() {
-
-    const cities = ["Chicago", "Denver", "LA", "Miami"];
+export default function CityFlights() {
 
     return (
         <>
             <Header />
             <StyledHome>
-                {cities.map(c => <GameCard city={c} />)}
+                What!
             </StyledHome>
         </>
     );
@@ -27,4 +23,3 @@ const StyledHome = styled.div`
     font-family: 'Lato', sans-serif;
     padding: 10px 20px;
 `;
-
