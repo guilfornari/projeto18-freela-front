@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function HomePage() {
 
-    const [value, setValue] = useState("");
+    const [team, setTeam] = useState("");
     const navigate = useNavigate();
 
     const teams = ["Chicago", "Denver", "LA", "Miami"];
@@ -13,7 +13,7 @@ export default function HomePage() {
 
     function selectTeam(event) {
         event.preventDefault();
-        navigate(`/team/${value}`)
+        navigate(`/team/${team}`)
     }
 
     return (
@@ -22,8 +22,8 @@ export default function HomePage() {
             <StyledHome>
                 <StyledSelection>
                     <form onSubmit={selectTeam}>
-                        <select value={value} onChange={e => setValue(e.target.value)}>
-                            {teams.map(t => <option value={t}>{t}</option>)}
+                        <select value={team} onChange={e => setTeam(e.target.value)}>
+                            {teams.map(t => <option key={t} team={t}>{t}</option>)}
                         </select>
                         <button type="submit">
                             Select

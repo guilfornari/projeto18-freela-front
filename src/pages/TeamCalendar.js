@@ -11,7 +11,7 @@ export default function TeamCalendar() {
         <>
             <Header />
             <StyledHome>
-                {cities.map(c => <GameCard city={c} />)}
+                {cities.map(c => <GameCard key={c} city={c} />)}
             </StyledHome>
         </>
     );

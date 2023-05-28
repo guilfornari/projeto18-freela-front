@@ -16,7 +16,7 @@ export default function FlightCard({ flight }) {
             </figure>
             <div>
                 <p>Data e Horário</p>
-                <p>Preço</p>
+                <p>R${flight}.00</p>
                 <p>Cidade de partida</p>
             </div>
         </ContainerStyled>

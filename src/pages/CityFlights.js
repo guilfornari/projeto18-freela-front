@@ -1,29 +1,80 @@
 import styled from "styled-components";
 import Header from "../components/Header";
 import FlightCard from "../components/FlightCard";
-import MinSliderFilter from "../components/MinSliderFilter";
 import MaxSliderFilter from "../components/MaxSliderFilter";
+import Box from "@mui/material/Box";
+import Slider from "@mui/material/Slider";
+import { useState } from "react";
 
 export default function CityFlights() {
+
+    const flights = ["2800", "3500", "6000", "7000", "30000", "40000"];
+
+    const marks = [
+        {
+            value: 2500,
+            label: "R$2500",
+        },
+        {
+            value: 3000,
+            label: "R$3000",
+        },
+        {
+            value: 3500,
+            label: "R$3500",
+        },
+        {
+            value: 4000,
+            label: "R$4000",
+        },
+    ];
+
+    function valuetext(value) {
+        return `${value}`;
+    }
+
+    function valueLabelFormat(value) {
+        return marks.findIndex((mark) => mark.value === value) + 1;
+    }
+
+    const [minValue, setMinValue] = useState(2500);
+    const [filteredFlights, SetFilterdFlights] = useState(flights)
+
+
+    function filterFlights() {
+        const flightList = flights.filter(f => f > minValue);
+        SetFilterdFlights(flightList);
+    }
+
     return (
         <>
             <Header />
             <StyledHome>
                 <StyledSideBar>
                     <h3>Preço Mínimo</h3>
-                    <MinSliderFilter />
+                    <Box sx={{ width: 250 }}>
+                        <Slider
+                            onChange={e => setMinValue(e.target.value)}
+                            onChangeCommitted={filterFlights}
+                            aria-label="Restricted values"
+                            defaultValue={2500}
+                            valueLabelFormat={valueLabelFormat}
+                            getAriaValueText={valuetext}
+                            step={500}
+                            valueLabelDisplay="auto"
+                            marks={marks}
+                            min={2500}
+                            max={4000}
+                            value={minValue}
+                        />
+                    </Box>
                     <h3>Preço Máximo</h3>
                     <MaxSliderFilter />
                 </StyledSideBar>
                 <StyledFlightsContainer>
                     <h1>Flights to your game!</h1>
                     <StyledFlightCardsContainer>
-                        <FlightCard />
-                        <FlightCard />
-                        <FlightCard />
-                        <FlightCard />
-                        <FlightCard />
-                        <FlightCard />
+                        {filteredFlights.map(f => <FlightCard key={f} flight={f} />)}
                     </StyledFlightCardsContainer>
                 </StyledFlightsContainer>
             </StyledHome>
